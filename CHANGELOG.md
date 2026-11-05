@@ -5,6 +5,11 @@ step, no runtime dependencies, only CSS tokens plus a few DOM decorations.
 
 ## Unreleased
 
+- Fixed: Windows caption buttons stay anchored to the viewport when the
+  sidebar is expanded or collapsed (#1, #4). Removed the sidebar column's
+  backdrop filter, which made it a containing block for fixed descendants
+  and clipped the buttons when its width became zero. Sidebar fill and
+  artwork, plus the composer and dialog blur effects, are preserved.
 - The sidebar top stack is tighter so more of the workspace list is visible:
   the logo row drops from 80px to 56px with the crest scaled from 64px to
   44px, the new-session button from 38px to 34px (bottom margin 12px to 8px),
