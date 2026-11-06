@@ -5,6 +5,15 @@ step, no runtime dependencies, only CSS tokens plus a few DOM decorations.
 
 ## Unreleased
 
+- Fixed: the Plugins and New Session icons keep their custom art on DSH 0.2.2.
+  Product icons now render through the ui-theme sprite as
+  `<svg data-icon="…"><use href="#…"/></svg>` with no `viewBox`; the icon swap
+  accepts that shape as well as the legacy inline 16-unit SVG, and unload
+  restores the original `viewBox` exactly (previously it always wrote 16).
+  New Session also matches the English `New session` label, not only `新建会话`.
+- Fixed: the hero maid finds its frame from the nearest `_root` class above the
+  brand-mark slot instead of the hard-coded `ST7X_W_root` hash, which no longer
+  matches 0.2.2 builds.
 - Fixed: Windows caption buttons stay anchored to the viewport when the
   sidebar is expanded or collapsed (#1, #4). Removed the sidebar column's
   backdrop filter, which made it a containing block for fixed descendants

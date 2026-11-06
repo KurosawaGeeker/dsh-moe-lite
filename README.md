@@ -103,9 +103,10 @@ npm pack && dsh plugin --profile desktop add ./dsh-moe-clean-0.15.3.tgz
 | DSH | 状态 |
 | --- | --- |
 | `0.2.1-rc.2` | 实测（桌面版 / web） |
-| 其它 `0.2.x` | 未实测，图标选择器依赖 aria-label |
+| `0.2.2-rc.1` | 图标管线已适配（jsdom 验证） |
+| 其它 `0.2.x` | 未实测 |
 
-只用到了 CSS 变量、`data-*` 属性和按钮的 `aria-label`，不触碰内部类名哈希。DSH 改版后如果图标没被替换，通常是 aria 文案变了，改一下 `lib/client.js` 里的正则即可。
+只用到了 CSS 变量、`data-*` 属性和按钮的 `aria-label`，侧栏与弹窗用稳定的类名前缀，不依赖构建时的哈希。图标替换同时接受旧版内联 `viewBox="0 0 16 16"` 和新版 sprite 的 `data-icon` 属性；DSH 改版后如果图标没被替换，先看 `lib/client.js` 里的 `isSwappableIcon()`，再核对 `aria-label` 文案对应的正则。
 
 ## 自定义
 
